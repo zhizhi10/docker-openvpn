@@ -74,6 +74,10 @@ tls-auth ta.key 1
 
     if [ "$OVPN_DEFROUTE" != "0" ];then
         echo "redirect-gateway def1"
+    else
+	echo "route-nopull"
+        echo "route 192.168.255.0 255.255.255.0"
+        echo "route 192.168.254.0 255.255.255.0"
     fi
 
     if [ -n "$OVPN_MTU" ]; then
